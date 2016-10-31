@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>LiquidHaskell: изящные типы</title>
+
+        <meta name="description" content="Доклад о LiquidHaskell для FPCONF, Москва, 3 декабря 2016 года.">
+        <meta name="author" content="Денис Шевченко">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="static/css/reveal.css">
+        <link rel="stylesheet" href="static/css/theme/beige.css" id="theme">
+        <link rel="stylesheet" href="static/iconfont/material-icons.css">
+        <link rel="stylesheet" href="static/css/own.css">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="static/lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <!--
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'static/css/print/pdf.css' : 'static/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        -->
+
+        <!--[if lt IE 9]>
+        <script src="static/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides" style="text-align: left !important;">
+                <section>
+                    <span class="header lighter">Liquid</span>
+                    <span class="header">Haskell:</span><br/>
+                    <div style="padding-top: 25px;"></div>
+                    <h3>изящные типы</h3>
+                    <div class="fpconf-info lighter">
+                        #fpconf, 03/12/2016
+                    </div>
+                </section>
+
+                <section>
+                    <div class="main-text">
+                        <div class="lighter">факт |</div>
+                        <span style="font-size: 110%;">сильная типизация &mdash; не панацея</span>
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+average :: [Int] -> Int
+average xs = sum xs `div` length xs
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+let marks = fromList [ ("USD", "$")
+                     , ("RUB", "₽")
+                     ]
+marks ! "EUR"
+                    </code></pre>
+                </section>
+
+                <section>
+                    <div class="main-text">
+                        <div class="lighter">цель |</div>
+                        <span style="font-size: 110%;">усовершенствовать наши типы</span>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="main-text">
+                        <span style="font-size: 125%;"><span class="lighter">Liquid</span>Haskell</span>
+                        <div style="padding-top: 20px;"></div>
+                        <div class="fragment" style="font-size: 105% !important;">
+                            проект UC San Diego<span class="fragment">&nbsp;&nbsp;<span class="lighter">|</span>&nbsp;&nbsp;с 2008 года</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-background="#9B539C">
+                    <div style="float: left;">
+                        <i class="material-icons" 
+                           style="font-size: 240px; color: yellow; padding-top: 20px;">lightbulb_outline</i>
+                    </div>
+                    <div class="main-text" 
+                         style="color: whitesmoke; font-size: 240% !important;">
+|&nbsp;&nbsp;идея
+                    </div>
+                </section>
+
+                <section>
+                    <div class="conceptual" style="padding-left: 500px !important;">
+v:Int
+                    </div>
+                </section>
+
+                <section>
+                    <div class="conceptual" style="padding-left: 500px !important; padding-top: 134px;">
+v:Int
+                    </div>
+                    <div class="main-text" style="padding-top: 77px; font-size: 120% !important;">
+                        -9223372036854775808
+                        &nbsp;&nbsp;
+                        <i class="material-icons lighter" style="font-size: 80% !important;">chevron_left</i>
+                        &nbsp;
+                        <i class="material-icons lighter" style="font-size: 80% !important;">chevron_right</i>
+                        &nbsp;&nbsp;
+                        9223372036854775807
+                    </div>
+                </section>
+
+                <section>
+                    <div class="conceptual" style="padding-left: 458px !important;">
+{v:Int | v>0}
+                    </div>
+                </section>
+
+                <section>
+                    <div class="conceptual">
+type Pos = {v:Int | v>0}
+                    </div>
+                </section>
+
+                <section>
+                    <div class="conceptual" style="padding-top: 134px;">
+type Pos = {v:Int | v>0}
+                    </div>
+                    <div class="main-text" style="padding-top: 50px; font-size: 180% !important;">
+                        Refinement Type
+                    </div>
+                </section>
+
+                <section data-background="#9B539C">
+                    <div style="float: left; padding-right: 36px;">
+                        <i class="material-icons" 
+                           style="font-size: 240px; color: #00C8F8;">computer</i>
+                    </div>
+                    <div class="main-text" 
+                         style="color: whitesmoke; font-size: 240% !important;">
+|&nbsp;&nbsp;приготовимся
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+$ stack install liquidhaskell
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+$ sudo apt install z3
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+$ stack exec -- liquid App.hs 
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+$ stack exec -- liquid src/* 
+                    </code></pre>
+                </section>
+
+                <section data-background="#9B539C">
+                    <div style="float: left; padding-right: 40px;">
+                        <i class="material-icons" 
+                           style="font-size: 240px; color: #F2A9E9;">school</i>
+                    </div>
+                    <div class="main-text" 
+                         style="color: whitesmoke; font-size: 240% !important;">
+|&nbsp;&nbsp;примеры
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@
+    type NotRootPort =
+            {p : Int | 1024 <= p
+                       && p <= 65535}
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@ localPort :: NotRootPort @-}
+localPort :: Int
+localPort = 3010
+                    </code></pre>
+                    <div class="fragment result">
+                        <span class="result-safe">**** RESULT: SAFE *******************</span>
+                    </div>
+                </section>
+
+<section>
+                    <pre><code class="haskell" data-trim>
+{-@ localPort :: NotRootPort @-}
+localPort :: Int
+localPort = 22
+                    </code></pre>
+                    <div class="fragment result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE *****************</span>
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@ predicate Between Lo V Hi =
+        Lo <= V && V <= Hi
+@-}
+
+{-@ type NotRootPort =
+        {p : Int | Between 1024 p 65535}
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@ predicate NotEqualTo S V = S != V
+@-}
+
+{-@ type NotRootPort =
+        {p:Int | Between 1024 p 65535
+                 && NotEqualTo 3000 p}
+@-}
+                    </code></pre>
+                </section>
+
+
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+data Currency = USD | RUB | EUR
+
+display :: Currency -> Text
+display USD = "US Dollar"
+display RUB = "Russia Ruble"
+                    </code></pre>
+                    <div class="fragment result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE *****************</span>
+                    </div>
+                </section>
+
+
+
+                <section>
+                    <div class="page-header">
+                        Дружба с GHC
+                    </div>
+                    <div style="padding-left: 230px !important; padding-right: 230px !important;">
+                        <div style="float: left;">
+                            <div class="mono underline-ok" style="font-size: 90px !important;">7.*</div>
+                        </div>
+                        <div style="text-align: right !important; padding-left: 50px !important;">
+                            <div class="mono underline-no" style="font-size: 90px !important;">8.*</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="main-text">
+                        <div style="font-size: 110% !important;">
+                            <a href="http://goto.ucsd.edu/~rjhala/liquid/haskell/blog/about/">официальный сайт <i class="material-icons" style="font-size: 33px;">open_in_new</i></a>
+                        </div>
+                        <div class="fragment" style="font-size: 110% !important; padding-left: 156px !important;">
+                            <a href="http://ucsd-progsys.github.io/liquidhaskell-tutorial/">и руководство <i class="material-icons" style="font-size: 33px;">open_in_new</i></a>
+                        </div>
+                    </div>
+                </section>
+
+                <section style="text-align: center !important;">
+                    <div class="thanks">
+                        <span class="exclamation">благодарю!</span>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <script src="static/lib/js/head.min.js"></script>
+        <script src="static/js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'static/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'static/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

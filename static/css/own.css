@@ -1,0 +1,463 @@
+@font-face {
+    font-family: 'MainFont';
+    src: url('../fonts/Roboto_Slab/RobotoSlab-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Source Code Pro';
+    src: url('../fonts/SourceCodePro-Regular.ttf');
+}
+
+.reveal {
+    font-family: 'MainFont', serif;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    font-family: 'MainFont', serif;
+    font-weight: 700;
+}
+
+.reveal h1 {
+    font-size: 40px;
+    /* color: #ff3c26; */
+    text-transform: none !important;
+}
+
+.reveal h2 {
+    text-transform: none !important;
+    font-weight: normal !important;
+    font-size: 110px !important;
+}
+
+.reveal h3 {
+    text-transform: none !important;
+    font-weight: normal !important;
+    font-size: 80px !important;
+}
+
+.reveal section img {
+    margin: 0px 0px;
+    background: none !important;
+    border: 0px solid #333;
+    box-shadow: 0 0 0px rgba(0, 0, 0, 0.15);
+}
+
+.slides {
+    width: 1150px !important;
+}
+
+.first {
+    padding-left: 50px !important;
+}
+
+.fpconf-info {
+    font-size: 32px !important;
+    padding-top: 60px !important;
+    text-align: right !important;
+}
+
+.tag {
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    font-size: 42px !important;
+    color: #aaa !important;
+}
+
+.exclamation {
+    font-size: 70px !important;
+    color: #FF3A1D !important;
+}
+
+.intro-quote {
+    font-family: 'Bad Script' !important;
+    font-size: 85px !important;
+}
+
+.quote-separator {
+    padding-right: 10px !important;
+}
+
+.quote-sign {
+    text-align: right !important;
+    color: #999 !important;
+    font-size: 36px !important;
+    padding-top: 40px !important;
+}
+
+.to-make-it-easier {
+    font-size: 56px !important;
+}
+
+.you-can {
+    font-size: 56px !important;
+}
+
+.bigger {
+    font-size: 72px !important;
+}
+
+.thanks {
+    font-size: 64px !important;
+    padding-bottom: 70px !important;
+}
+
+.reason-number {
+    color: #999 !important;
+    font-size: 42px !important;
+}
+
+.reason-text {
+    font-size: 80px !important;
+}
+
+.packages-number {
+    text-align: center !important;
+    font-size: 156px !important;
+}
+
+.meetup-mark {
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    text-align: center !important;
+    font-size: 65% !important;
+    padding-top: 70px !important;
+}
+
+.above-src-code-separator {
+    padding-top: 1px !important;
+}
+
+.under-src-code-separator {
+    padding-top: 25px !important;
+}
+
+.reveal .progress span {
+    background: #F04F20;
+}
+
+.hljs {
+    background: #073642 !important;
+}
+
+.reveal pre code {
+    font-size: 42px !important;
+    font-weight: 400 !important;
+    line-height: 120% !important;
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    padding-left: 30px !important;
+    padding-right: 25px !important;
+    padding-top: 25px !important;
+    padding-bottom: 25px !important;
+    border-radius: 7px !important;
+}
+
+.code-inline {
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+}
+
+.reveal pre {
+    border-radius: 7px !important;
+}
+
+.src-code-big {
+    font-size: 52px !important;
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    padding-bottom: 30px !important;
+}
+
+.src-code-small {
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    font-size: 12px !important;
+}
+
+.src-code-big-aligned {
+    text-align: left !important;
+    font-size: 42px !important;
+    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    border: 1px solid #002b35 !important;
+    border-radius: 5px !important;
+    background-color: #002b35 !important;
+    padding: 20px !important;
+    color: #11a198 !important;
+    /* padding-bottom: 30px !important; */
+}
+
+.my-site {
+    font-size: 42px !important;
+    padding-left: 13px !important;
+}
+
+.reveal .navigate-up {
+    display: none !important;
+}
+
+.reveal .navigate-down {
+    display: none !important;
+}
+
+.reveal .controls {
+    display: none !important;
+}
+
+/*
+.reveal .slides section .fragment.highlight-red.visible {
+    color: #ff2c2d;
+    border-bottom: 3px solid #ff2c2d;
+}
+*/
+
+.part-conception-title {
+    color: #dedede !important;
+}
+
+.part-conception-mark {
+    color: #dedede !important;
+    font-size: 130px !important;
+}
+
+.calculator-mark {
+    color: #224DD9 !important;
+    font-size: 180px !important;
+}
+
+.bigger-text {
+    color: #586e75 !important;
+    font-size: 72px !important;
+}
+
+.big-text {
+    color: #586e75 !important;
+    font-size: 65px !important;
+}
+
+.medium-text {
+    color: #586e75 !important;
+    font-size: 52px !important;
+}
+
+.small-text {
+    color: #586e75 !important;
+    font-size: 30px !important;
+}
+
+.red-text {
+    color: #ff2634 !important;
+}
+
+.green-text {
+    color: #277873 !important;
+}
+
+.small-thumbs {
+    font-size: 48px !important;
+    padding-right: 6px !important;
+}
+
+.english-separator {
+    padding-top: 18px !important;
+}
+
+.space-leak-result-separator {
+    padding-top: 25px !important;
+}
+
+.stat-clock-icon {
+    color: #888 !important;
+    padding-right: 26px !important;
+}
+
+.stat-memory-icon {
+    color: #888 !important;
+    padding-right: 8px !important;
+}
+
+.stat-wrapper {
+    text-align: left !important;
+    padding-left: 45px !important;
+}
+
+.lazy-color {
+    color: #53777A !important;
+}
+
+.plus-color {
+    color: #CC333F !important;
+}
+
+.minus-color {
+    color: #542437 !important;
+}
+
+.text-left {
+    text-align: left !important;
+    padding-left: 44px !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.start-tip {
+    font-size: 20px !important;
+    text-align: center !important;
+}
+
+.key {
+    border: 1px solid #888 !important;
+    border-radius: 4px !important;
+    background-color: #999 !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    font-family: 'Source Code Pro', monospace !important;
+    color: #eee !important;
+    font-size: 90% !important;
+}
+
+.memory-error-sign {
+    padding-top: 40px !important;
+    font-size: 100px !important;
+    color: #aaa !important;
+}
+
+.quantity-sign {
+    padding-top: 40px !important;
+    font-size: 150px !important;
+    color: #aaa !important;
+}
+
+.lambda-code {
+    font-size: 90px !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.big-lambda-code {
+    font-size: 120px !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.num-light {
+    float: left !important;
+    font-size: 250% !important;
+    color: #90AFC5 !important;
+    opacity: 0.4 !important;
+    padding-right: 45px !important;
+    padding-top: 79px !important;
+}
+
+.num-text {
+    padding-top: 110px !important;
+}
+
+.final-section-principles {
+    float: left !important;
+    padding-bottom: 70px !important;
+    padding-right: 125px !important;
+}
+
+.final-section-advantages {
+    float: left !important;
+    padding-bottom: 70px !important;
+    padding-right: 142px !important;
+}
+
+.final-section-disadvantages {
+    float: left !important;
+    padding-bottom: 70px !important;
+    padding-right: 143px !important;
+}
+
+.final-section-principles-picture {
+    font-size: 80px !important;
+    color: #336B87 !important;
+}
+
+.final-section-advantages-picture {
+    font-size: 80px !important;
+    color: #277873 !important;
+}
+
+.final-section-disadvantages-picture {
+    font-size: 80px !important;
+    color: #A43820 !important;
+}
+
+.final-section-principles-text {
+    color: #336B87 !important;
+}
+
+.final-section-advantages-text {
+    color: #277873 !important;
+}
+
+.final-section-disadvantages-text {
+    padding-top: 5px !important;
+    color: #A43820 !important;
+}
+
+.mono-opt {
+    font-size: 70px !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.conceptual {
+    font-size: 70px !important;
+    font-family: 'Source Code Pro', monospace !important;
+}
+
+.header {
+    font-size: 120px !important; 
+}
+
+.lighter {
+    color: #989898 !important;
+}
+
+.lightest {
+    color: #bcbcbc !important;
+}
+
+.main-text {
+    font-size: 56px !important; 
+}
+
+.shortlink {
+    font-family: 'Source Code Pro', monospace !important;
+    font-size: 125% !important;
+}
+
+.mono {
+    font-family: 'Source Code Pro', monospace !important;
+    font-size: 105% !important;
+}
+
+.result {
+    padding-left: 52px !important;
+    padding-top: 20px !important;
+}
+
+.result-safe {
+    font-family: 'Source Code Pro', monospace !important;
+    font-size: 130% !important;
+    color: #59B75C !important;
+}
+
+.result-unsafe {
+    font-family: 'Source Code Pro', monospace !important;
+    font-size: 130% !important;
+    color: #F55549 !important;
+}
+
+.page-header {
+    text-align: center !important;
+    font-size: 190% !important;
+    padding-bottom: 90px !important;
+}
+
+.underline-ok {
+    border-bottom: 15px solid #59B75C !important;
+}
+
+.underline-no {
+    margin-left: 490px !important;
+    border-bottom: 15px solid #F55549 !important;
+}
