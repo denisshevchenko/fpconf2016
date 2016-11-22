@@ -46,47 +46,62 @@
                     <span class="header lighter">Liquid</span>
                     <span class="header">Haskell:</span><br/>
                     <div style="padding-top: 25px;"></div>
-                    <h3>изящные типы</h3>
+                    <div class="funny">изящные типы</div>
                     <div class="fpconf-info lighter">
-                        #fpconf, 03/12/2016
+                        Денис Шевченко, <a href="https://twitter.com/search?f=tweets&vertical=default&q=%23fpconf&src=typd">#fpconf</a>, 03/12/2016
                     </div>
+                </section>
+
+                <section>
+                    <div class="funny" style="padding-left: 6px !important; padding-top: 143px !important;">всесильные типы?</div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+average :: Foldable t => t Int -> Int
+average ns = sum ns `div` length ns
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+checkProtocol :: [IP] -> Bool
+checkProtocol = isIPv4 . head
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+getUserName :: Home -> Text
+getUserName homeDir = parts !! 1
+  where
+    parts = splitOn "/" homeDir
+                    </code></pre>
                 </section>
 
                 <section>
                     <div class="main-text">
                         <div class="lighter">факт |</div>
-                        <span style="font-size: 110%;">сильная типизация &mdash; не панацея</span>
+                        <span style="font-size: 125%;">
+                            сильная типизация &mdash;<br/>не панацея
+                        </span>
                     </div>
-                </section>
-
-                <section>
-                    <pre><code class="haskell" data-trim>
-average :: [Int] -> Int
-average xs = sum xs `div` length xs
-                    </code></pre>
-                </section>
-
-                <section>
-                    <pre><code class="haskell" data-trim>
-let marks = fromList [ ("USD", "$")
-                     , ("RUB", "₽")
-                     ]
-marks ! "EUR"
-                    </code></pre>
                 </section>
 
                 <section>
                     <div class="main-text">
                         <div class="lighter">цель |</div>
-                        <span style="font-size: 110%;">усовершенствовать наши типы</span>
+                        <span style="font-size: 125%;">
+                            усовершенствовать<br/>наши типы
+                        </span>
                     </div>
                 </section>
 
                 <section>
                     <div class="main-text">
-                        <span style="font-size: 125%;"><span class="lighter">Liquid</span>Haskell</span>
+                        <span style="font-size: 145%;"><span class="lighter">Liquid</span>Haskell</span>
                         <div style="padding-top: 20px;"></div>
-                        <div class="fragment" style="font-size: 105% !important;">
+                        <div class="fragment" style="font-size: 110% !important;">
                             проект UC San Diego<span class="fragment">&nbsp;&nbsp;<span class="lighter">|</span>&nbsp;&nbsp;с 2008 года</span>
                         </div>
                     </div>
@@ -113,13 +128,9 @@ v:Int
                     <div class="conceptual" style="padding-left: 500px !important; padding-top: 134px;">
 v:Int
                     </div>
-                    <div class="main-text" style="padding-top: 77px; font-size: 120% !important;">
+                    <div class="main-text" style="padding-top: 67px; font-size: 142% !important;">
                         -9223372036854775808
-                        &nbsp;&nbsp;
-                        <i class="material-icons lighter" style="font-size: 80% !important;">chevron_left</i>
-                        &nbsp;
-                        <i class="material-icons lighter" style="font-size: 80% !important;">chevron_right</i>
-                        &nbsp;&nbsp;
+                        &hellip;
                         9223372036854775807
                     </div>
                 </section>
@@ -138,11 +149,44 @@ type Pos = {v:Int | v>0}
 
                 <section>
                     <div class="conceptual" style="padding-top: 134px;">
-type Pos = {v:Int | v>0}
+type Pos = {v:<span style="color: brown;">Int</span> | <span style="color: green;">v>0</span>}
                     </div>
-                    <div class="main-text" style="padding-top: 50px; font-size: 180% !important;">
-                        Refinement Type
+                    <div class="main-text" style="padding-top: 63px; font-size: 150% !important;">
+                        <span style="padding-right: 586px;"></span>
+                        <span style="color: brown;">Base</span>
+                        <span style="padding-right: 34px;"></span>
+                        +
+                        <span style="padding-right: 38px;"></span>
+                        <span style="color: green;">Refinement</span>
                     </div>
+                </section>
+
+                <section>
+                    <div class="conceptual" style="padding-top: 134px;">
+type <span style="color: #7d3c98;">Pos</span> = {v:<span style="color: brown;">Int</span> | <span style="color: green;">v>0</span>}
+                    </div>
+                    <div class="main-text" style="padding-top: 63px; font-size: 150% !important;">
+                        <span style="padding-right: 211px;"></span>
+                        <span style="color: #7d3c98;">Liquid</span>
+                        <span style="padding-right: 199px;"></span>
+                        <span style="color: brown;">Base</span>
+                        <span style="padding-right: 34px;"></span>
+                        +
+                        <span style="padding-right: 38px;"></span>
+                        <span style="color: green;">Refinement</span>
+                    </div>
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    Liquid?
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    Logically Qualified Data Type
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    <strong>L</strong><span class="lightest">og</span><strong>i</strong><span class="lightest">cally</span> <strong>Qu</strong><span class="lightest">alif</span><strong>i</strong><span class="lightest">e</span><strong>d</strong> <span class="lightest">Data</span> <strong>Type</strong>
                 </section>
 
                 <section data-background="#9B539C">
@@ -157,26 +201,20 @@ type Pos = {v:Int | v>0}
                 </section>
 
                 <section>
-                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+                    <pre><code class="bash" data-trim style="font-size: 300% !important;">
 $ stack install liquidhaskell
                     </code></pre>
                 </section>
 
                 <section>
-                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
-$ sudo apt install z3
+                    <pre><code class="bash" data-trim style="font-size: 300% !important;">
+$ apt-get install z3
                     </code></pre>
                 </section>
 
                 <section>
-                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
+                    <pre><code class="bash" data-trim style="font-size: 300% !important;">
 $ stack exec -- liquid App.hs 
-                    </code></pre>
-                </section>
-
-                <section>
-                    <pre><code class="bash" data-trim style="font-size: 250% !important;">
-$ stack exec -- liquid src/* 
                     </code></pre>
                 </section>
 
@@ -193,8 +231,9 @@ $ stack exec -- liquid src/*
 
                 <section>
                     <pre><code class="haskell" data-trim>
-{-@
-    type NotRootPort =
+module Contracts where
+
+{-@ type NotRootPort =
             {p : Int | 1024 <= p
                        && p <= 65535}
 @-}
@@ -203,23 +242,27 @@ $ stack exec -- liquid src/*
 
                 <section>
                     <pre><code class="haskell" data-trim>
+import Contracts ()
+
 {-@ localPort :: NotRootPort @-}
 localPort :: Int
 localPort = 3010
                     </code></pre>
-                    <div class="fragment result">
-                        <span class="result-safe">**** RESULT: SAFE *******************</span>
+                    <div class="fragment fade-up result">
+                        <span class="result-safe">**** RESULT: SAFE ****</span>
                     </div>
                 </section>
 
-<section>
+                <section>
                     <pre><code class="haskell" data-trim>
+import Contracts ()
+
 {-@ localPort :: NotRootPort @-}
 localPort :: Int
 localPort = 22
                     </code></pre>
-                    <div class="fragment result">
-                        <span class="result-unsafe">**** RESULT: UNSAFE *****************</span>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
                     </div>
                 </section>
 
@@ -248,6 +291,62 @@ localPort = 22
                 </section>
 
 
+                <section>
+                    <pre><code class="haskell" data-trim>
+main :: IO ()
+main = (readLn :: IO Int)
+  >>= print . okDiv 512
+                    </code></pre>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+main :: IO ()
+main = (readLn :: IO Int)
+  >>= divideIt
+ where
+  divideIt 0 = putStrLn "Go away!"
+  divideIt v = print $ 512 `okDiv` v
+                    </code></pre>
+                    <div class="fragment fade-up result">
+                        <span class="result-safe">**** RESULT: SAFE ****</span>
+                    </div>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+module Contracts where
+
+{-@ type NonEmptyList =
+               {l:[a] | len l > 0}
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+[1 of 1] Compiling Main             ( src/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/learnHaskell/learnHaskell-tmp/Main.o )
+
+/home/dshevchenko/learnHaskell/src/Main.hs:8:16: Not in scope: ‘f’
+
+---
+
+Invalid Source
+
+
+ src/Main.hs:8:16: Error: GHC Error
+  
+   8 | main = print $ f "Hi!"
+                      ^
+                        
+       Not in scope: ‘f’
+
+                </section>
+
+
+
 
                 <section>
                     <pre><code class="haskell" data-trim>
@@ -257,11 +356,32 @@ display :: Currency -> Text
 display USD = "US Dollar"
 display RUB = "Russia Ruble"
                     </code></pre>
-                    <div class="fragment result">
-                        <span class="result-unsafe">**** RESULT: UNSAFE *****************</span>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
                     </div>
                 </section>
 
+
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+import Language.Haskell.Liquid.Prelude
+                    </code></pre>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
+                    </div>
+                </section>
+
+                <section data-background="#9B539C">
+                    <div style="float: left; padding-right: 40px;">
+                        <i class="material-icons" 
+                           style="font-size: 240px; color: #b8e7b5;">thumb_up</i>
+                    </div>
+                    <div class="main-text" 
+                         style="color: whitesmoke; font-size: 240% !important;">
+|&nbsp;&nbsp;полезности
+                    </div>
+                </section>
 
 
                 <section>
@@ -270,28 +390,40 @@ display RUB = "Russia Ruble"
                     </div>
                     <div style="padding-left: 230px !important; padding-right: 230px !important;">
                         <div style="float: left;">
-                            <div class="mono underline-ok" style="font-size: 90px !important;">7.*</div>
+                            <div class="mono underline-ok" style="font-size: 310% !important;">7.*</div>
                         </div>
                         <div style="text-align: right !important; padding-left: 50px !important;">
-                            <div class="mono underline-no" style="font-size: 90px !important;">8.*</div>
+                            <div class="mono underline-no" style="font-size: 310% !important;">8.*</div>
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <div class="main-text">
-                        <div style="font-size: 110% !important;">
-                            <a href="http://goto.ucsd.edu/~rjhala/liquid/haskell/blog/about/">официальный сайт <i class="material-icons" style="font-size: 33px;">open_in_new</i></a>
-                        </div>
-                        <div class="fragment" style="font-size: 110% !important; padding-left: 156px !important;">
-                            <a href="http://ucsd-progsys.github.io/liquidhaskell-tutorial/">и руководство <i class="material-icons" style="font-size: 33px;">open_in_new</i></a>
+                        <div style="font-size: 140% !important;">
+                            <a href="http://refinement-types.org/">refinement-types.org</a>
                         </div>
                     </div>
                 </section>
 
-                <section style="text-align: center !important;">
-                    <div class="thanks">
-                        <span class="exclamation">благодарю!</span>
+                <section>
+                    <div class="main-text" style="float: left; height: 300px;">
+                        <span style="font-size: 140% !important;">благодарю!</span>
+                    </div>
+                    <div style="margin-left: 630px !important; margin-top: 14px;" class="main-text">
+                        <div>
+                            здесь слайды
+                        </div>
+                        <div>
+                            <a href="http://bit.do/fpconf2016" style="font-size: 110% !important;">bit.do/fpconf2016</a>
+                        </div>
+                        <div style="padding-top: 40px;"></div>
+                        <div>
+                            а здесь я
+                        </div>
+                        <div>
+                            <a href="https://dshevchenko.biz" style="font-size: 110% !important;">dshevchenko.biz</a>
+                        </div>
                     </div>
                 </section>
             </div>

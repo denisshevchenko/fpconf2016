@@ -32,7 +32,7 @@
 .reveal h3 {
     text-transform: none !important;
     font-weight: normal !important;
-    font-size: 80px !important;
+    font-size: 90px !important;
 }
 
 .reveal section img {
@@ -43,7 +43,15 @@
 }
 
 .slides {
-    width: 1150px !important;
+    width: 1200px !important;
+}
+
+.funny {
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    transform: rotate(7deg);
+    padding-top: 44px !important;
+    font-size: 250% !important;
 }
 
 .first {
@@ -51,9 +59,8 @@
 }
 
 .fpconf-info {
-    font-size: 32px !important;
-    padding-top: 60px !important;
-    text-align: right !important;
+    font-size: 46px !important;
+    padding-top: 55px !important;
 }
 
 .tag {
@@ -63,8 +70,7 @@
 }
 
 .exclamation {
-    font-size: 70px !important;
-    color: #FF3A1D !important;
+    font-size: 86px !important;
 }
 
 .intro-quote {
@@ -137,16 +143,24 @@
     background: #073642 !important;
 }
 
+.reveal pre {
+    width: 99% !important;
+}
+
 .reveal pre code {
-    font-size: 42px !important;
+    font-size: 49px !important;
     font-weight: 400 !important;
     line-height: 120% !important;
-    font-family: 'Source Code Pro', 'Menlo', monospace !important;
+    font-family: 'Source Code Pro', monospace !important;
     padding-left: 30px !important;
     padding-right: 25px !important;
     padding-top: 25px !important;
     padding-bottom: 25px !important;
     border-radius: 7px !important;
+}
+
+.hljs-comment {
+    color: #bcbcbc !important;
 }
 
 .code-inline {
@@ -405,19 +419,19 @@
 }
 
 .header {
-    font-size: 120px !important; 
+    font-size: 145px !important; 
 }
 
 .lighter {
-    color: #989898 !important;
+    color: #8e8e8e !important;
 }
 
 .lightest {
-    color: #bcbcbc !important;
+    color: #cecece !important;
 }
 
 .main-text {
-    font-size: 56px !important; 
+    font-size: 64px !important; 
 }
 
 .shortlink {
@@ -431,33 +445,33 @@
 }
 
 .result {
-    padding-left: 52px !important;
-    padding-top: 20px !important;
+    padding-left: 2px !important;
+    padding-top: 25px !important;
 }
 
 .result-safe {
     font-family: 'Source Code Pro', monospace !important;
-    font-size: 130% !important;
+    font-size: 180% !important;
     color: #59B75C !important;
 }
 
 .result-unsafe {
     font-family: 'Source Code Pro', monospace !important;
-    font-size: 130% !important;
+    font-size: 180% !important;
     color: #F55549 !important;
 }
 
 .page-header {
     text-align: center !important;
-    font-size: 190% !important;
+    font-size: 210% !important;
     padding-bottom: 90px !important;
 }
 
 .underline-ok {
-    border-bottom: 15px solid #59B75C !important;
+    border-bottom: 19px solid #59B75C !important;
 }
 
 .underline-no {
     margin-left: 490px !important;
-    border-bottom: 15px solid #F55549 !important;
+    border-bottom: 19px solid #F55549 !important;
 }
