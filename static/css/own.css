@@ -4,8 +4,23 @@
 }
 
 @font-face {
+    font-family: 'MainFontBold';
+    src: url('../fonts/Roboto_Slab/RobotoSlab-Bold.ttf');
+}
+
+@font-face {
     font-family: 'Source Code Pro';
-    src: url('../fonts/SourceCodePro-Regular.ttf');
+    src: url('../fonts/SourceCodePro-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Source Code Pro B';
+    src: url('../fonts/SourceCodePro-Semibold.otf');
+}
+
+strong {
+    font-family: 'MainFontBold' !important;
+    font-weight: 500 !important;
 }
 
 .reveal {
@@ -13,8 +28,7 @@
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-    font-family: 'MainFont', serif;
-    font-weight: 700;
+    font-family: 'MainFontBold', serif;
 }
 
 .reveal h1 {
@@ -462,24 +476,24 @@
 }
 
 .result-safe {
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: 'Source Code Pro B', monospace !important;
     font-size: 180% !important;
     color: #59B75C !important;
 }
 
 .result-unsafe {
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: 'Source Code Pro B', monospace !important;
     font-size: 180% !important;
     color: #F55549 !important;
 }
 
 .maybe-safe {
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: 'Source Code Pro B', monospace !important;
     color: #59B75C !important;
 }
 
 .maybe-unsafe {
-    font-family: 'Source Code Pro', monospace !important;
+    font-family: 'Source Code Pro B', monospace !important;
     color: #F55549 !important;
 }
 

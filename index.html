@@ -307,30 +307,6 @@ main = (readLn :: IO Int)
                         <span class="result-safe">**** RESULT: SAFE ****</span>
                     </div>
                 </section>
-<!--
-                <section>
-                    <pre><code class="haskell" data-trim>
-module Specifications where
-
-{-@ type NonEmptyList =
-               {l:[a] | len l > 0}
-@-}
-                    </code></pre>
-                </section>
-                -->
-                
-
-
-<!--
-                <section>
-                    <pre><code class="haskell" data-trim>
-import Language.Haskell.Liquid.Prelude
-                    </code></pre>
-                    <div class="fragment fade-up result">
-                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
-                    </div>
-                </section>
--->
 
                 <section style="font-size: 200% !important;">
                     <span class="maybe-unsafe">UNSAFE</span> &mdash; скорее всего, плохой&hellip;
@@ -338,9 +314,69 @@ import Language.Haskell.Liquid.Prelude
                     <span class="maybe-safe">SAFE</span> &mdash; точно хороший!
                 </section>
 
-                <section style="font-size: 200% !important;">
-                    <span style="color: red !important;">TODO</span>
+
+                
+
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+servicePorts :: [Port]
+servicePorts =
+  [3000, 3001, 3010, 3011, 3012, 3013
+   3013, 3014, 3020, 3030, 3040, 3050]
+                    </code></pre>
                 </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+module Liquid.Spec.List where
+
+import Data.Set
+
+{-@ type ListUnique a =
+           {v:[a] | NoDups v}
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@ predicate NoDups L =
+                Set_emp (dups L)
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" style="font-size: 220% !important;" data-trim>
+{-@ measure dups :: [a] -> (Set a)
+    dups ([])   = {v | Set_emp v}
+    dups (x:xs) = {v | v =
+      if (Set_mem x (listElts xs))
+      then (Set_cup (Set_sng x) (dups xs))
+      else (dups xs)}
+@-}
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <pre><code class="haskell" style="font-size: 235% !important;" data-trim>
+{-@ servicePorts ::
+    ListUnique NotRootPort @-}
+servicePorts :: [Port]
+servicePorts =
+  [3000, 3001, 3010, 3011, 3012, 3013
+   3013, 3014, 3020, 3030, 3040, 3050]
+                    </code></pre>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
+                    </div>
+
+                </section>
+
+
+
+
 
                 <section data-background="#9B539C">
                     <div style="float: left; padding-right: 10px;">
