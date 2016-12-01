@@ -143,6 +143,18 @@
     background: #073642 !important;
 }
 
+.hljs-keyword {
+    color: #8de183 !important;
+}
+
+.hljs-string {
+    color: #f27373 !important;
+}
+
+.hljs-built_in, .hljs-builtin-name {
+    color: inherit !important;
+}
+
 .reveal pre {
     width: 99% !important;
 }
@@ -458,6 +470,16 @@
 .result-unsafe {
     font-family: 'Source Code Pro', monospace !important;
     font-size: 180% !important;
+    color: #F55549 !important;
+}
+
+.maybe-safe {
+    font-family: 'Source Code Pro', monospace !important;
+    color: #59B75C !important;
+}
+
+.maybe-unsafe {
+    font-family: 'Source Code Pro', monospace !important;
     color: #F55549 !important;
 }
 

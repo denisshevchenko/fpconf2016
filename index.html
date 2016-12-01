@@ -102,7 +102,7 @@ getUserName homeDir = parts !! 1
                         <span style="font-size: 145%;"><span class="lighter">Liquid</span>Haskell</span>
                         <div style="padding-top: 20px;"></div>
                         <div class="fragment" style="font-size: 110% !important;">
-                            проект UC San Diego<span class="fragment">&nbsp;&nbsp;<span class="lighter">|</span>&nbsp;&nbsp;с 2008 года</span>
+                            проект UC San Diego&nbsp;&nbsp;<span class="lighter">|</span>&nbsp;&nbsp;с 2008 года
                         </div>
                     </div>
                 </section>
@@ -144,20 +144,6 @@ v:Int
                 <section>
                     <div class="conceptual">
 type Pos = {v:Int | v>0}
-                    </div>
-                </section>
-
-                <section>
-                    <div class="conceptual" style="padding-top: 134px;">
-type Pos = {v:<span style="color: brown;">Int</span> | <span style="color: green;">v>0</span>}
-                    </div>
-                    <div class="main-text" style="padding-top: 63px; font-size: 150% !important;">
-                        <span style="padding-right: 586px;"></span>
-                        <span style="color: brown;">Base</span>
-                        <span style="padding-right: 34px;"></span>
-                        +
-                        <span style="padding-right: 38px;"></span>
-                        <span style="color: green;">Refinement</span>
                     </div>
                 </section>
 
@@ -218,6 +204,20 @@ $ stack exec -- liquid App.hs
                     </code></pre>
                 </section>
 
+                <section>
+                    <div class="page-header">
+                        Дружба с GHC
+                    </div>
+                    <div style="padding-left: 230px !important; padding-right: 230px !important;">
+                        <div style="float: left;">
+                            <div class="mono underline-ok" style="font-size: 310% !important;">7.*</div>
+                        </div>
+                        <div style="text-align: right !important; padding-left: 50px !important;">
+                            <div class="mono underline-no" style="font-size: 310% !important;">8.*</div>
+                        </div>
+                    </div>
+                </section>
+
                 <section data-background="#9B539C">
                     <div style="float: left; padding-right: 40px;">
                         <i class="material-icons" 
@@ -231,18 +231,18 @@ $ stack exec -- liquid App.hs
 
                 <section>
                     <pre><code class="haskell" data-trim>
-module Contracts where
+module Liquid.Spec.Port where
 
 {-@ type NotRootPort =
-            {p : Int | 1024 <= p
-                       && p <= 65535}
+           {p:Int | 1024 <= p
+                    && p <= 65535}
 @-}
                     </code></pre>
                 </section>
 
                 <section>
                     <pre><code class="haskell" data-trim>
-import Contracts ()
+import Liquid.Spec.Port ()
 
 {-@ localPort :: NotRootPort @-}
 localPort :: Int
@@ -255,7 +255,7 @@ localPort = 3010
 
                 <section>
                     <pre><code class="haskell" data-trim>
-import Contracts ()
+import Liquid.Spec.Port ()
 
 {-@ localPort :: NotRootPort @-}
 localPort :: Int
@@ -266,18 +266,7 @@ localPort = 22
                     </div>
                 </section>
 
-                <section>
-                    <pre><code class="haskell" data-trim>
-{-@ predicate Between Lo V Hi =
-        Lo <= V && V <= Hi
-@-}
-
-{-@ type NotRootPort =
-        {p : Int | Between 1024 p 65535}
-@-}
-                    </code></pre>
-                </section>
-
+<!--
                 <section>
                     <pre><code class="haskell" data-trim>
 {-@ predicate NotEqualTo S V = S != V
@@ -289,6 +278,27 @@ localPort = 22
 @-}
                     </code></pre>
                 </section>
+-->
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+module Liquid.Spec.Number where
+
+{-@ type NotZero = {n:Int | n != 0}
+@-}
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+{-@ okDiv :: Int -> NotZero -> Int @-}
+okDiv :: Int -> Int -> Int
+okDiv = div
+                    </code></pre>
+                </section>
+
+
+
 
 
                 <section>
@@ -315,54 +325,21 @@ main = (readLn :: IO Int)
                         <span class="result-safe">**** RESULT: SAFE ****</span>
                     </div>
                 </section>
-
+<!--
                 <section>
                     <pre><code class="haskell" data-trim>
-module Contracts where
+module Specifications where
 
 {-@ type NonEmptyList =
                {l:[a] | len l > 0}
 @-}
                     </code></pre>
                 </section>
-
-                <section>
-[1 of 1] Compiling Main             ( src/Main.hs, .stack-work/dist/x86_64-linux/Cabal-1.22.5.0/build/learnHaskell/learnHaskell-tmp/Main.o )
-
-/home/dshevchenko/learnHaskell/src/Main.hs:8:16: Not in scope: ‘f’
-
----
-
-Invalid Source
+                -->
+                
 
 
- src/Main.hs:8:16: Error: GHC Error
-  
-   8 | main = print $ f "Hi!"
-                      ^
-                        
-       Not in scope: ‘f’
-
-                </section>
-
-
-
-
-                <section>
-                    <pre><code class="haskell" data-trim>
-data Currency = USD | RUB | EUR
-
-display :: Currency -> Text
-display USD = "US Dollar"
-display RUB = "Russia Ruble"
-                    </code></pre>
-                    <div class="fragment fade-up result">
-                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
-                    </div>
-                </section>
-
-
-
+<!--
                 <section>
                     <pre><code class="haskell" data-trim>
 import Language.Haskell.Liquid.Prelude
@@ -371,36 +348,121 @@ import Language.Haskell.Liquid.Prelude
                         <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
                     </div>
                 </section>
+-->
+
+                <section style="font-size: 200% !important;">
+                    <span class="maybe-unsafe">UNSAFE</span> &mdash; скорее всего, плохой&hellip;
+                    <div style="padding-top: 15px !important;"></div>
+                    <span class="maybe-safe">SAFE</span> &mdash; точно хороший!
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    <span style="color: red !important;">TODO</span>
+                </section>
 
                 <section data-background="#9B539C">
-                    <div style="float: left; padding-right: 40px;">
+                    <div style="float: left; padding-right: 10px;">
                         <i class="material-icons" 
-                           style="font-size: 240px; color: #b8e7b5;">thumb_up</i>
+                           style="font-size: 240px; color: #b8e7b5;">money_off</i>
                     </div>
                     <div class="main-text" 
                          style="color: whitesmoke; font-size: 240% !important;">
-|&nbsp;&nbsp;полезности
+|&nbsp;&nbsp;подарки
                     </div>
                 </section>
 
+                <section style="font-size: 200% !important;">
+                    Сообщения об ошибках
+                </section>
 
                 <section>
-                    <div class="page-header">
-                        Дружба с GHC
+                    <pre><code class="haskell" data-trim>
+main :: IO ()
+main = print . f $ "O RLY?"
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim>
+[1 of 1] Compiling Main
+
+~/src/Main.hs:8:16: Not in scope: ‘f’
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim>
+ src/Main.hs:8:16: Error: GHC Error
+  
+   8 | main = print . f $ "O RLY?"
+                      ^
+                        
+       Not in scope: ‘f’
+                    </code></pre>
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    Тотальность функций
+                </section>
+
+                <section>
+                    <pre><code class="bash" data-trim style="font-size: 300% !important;">
+$ liquid --totality App.hs 
+                    </code></pre>
+                </section>
+
+                <section>
+                    <pre><code class="haskell" data-trim>
+data Currency = USD | RUB | GBP | EUR
+
+display :: Currency -> Text
+display USD = "United States Dollar"
+display RUB = "Russia Ruble"
+display GBP = "United Kingdom Pound"
+                    </code></pre>
+                    <div class="fragment fade-up result">
+                        <span class="result-unsafe">**** RESULT: UNSAFE ****</span>
                     </div>
-                    <div style="padding-left: 230px !important; padding-right: 230px !important;">
-                        <div style="float: left;">
-                            <div class="mono underline-ok" style="font-size: 310% !important;">7.*</div>
+                </section>
+
+                <section style="font-size: 200% !important;">
+                    Ошибки типов
+                </section>
+                
+                <section style="font-size: 200% !important;">
+                    <pre><code class="haskell" data-trim>
+import Liquid.Spec.Port ()
+
+{-@ localPort :: NotRootPort @-}
+localPort :: Int
+localPort = 22
+                    </code></pre>
+                    <div class="fragment fade-up">
+                        <a href="file:///home/denis/learnHaskell/src/.liquid/App.hs.html" target="_blank">И вот отчёт&hellip;</a>
+                    </div>
+                </section>
+
+                <section>
+                    <div style="font-size: 150% !important;">
+                        <div style="float: left; padding-right: 50px !important; margin-top: 20px !important;">
+                            <i class="material-icons" style="font-size: 90px; color: #00C8F8;">looks_one</i>
                         </div>
-                        <div style="text-align: right !important; padding-left: 50px !important;">
-                            <div class="mono underline-no" style="font-size: 310% !important;">8.*</div>
+                        <div style="font-size: 130% !important;">
+                            мы можем сделать<br/>наши проекты ещё надёжнее
+                        </div>
+                        <div style="padding-top: 50px !important;"></div>
+                        <div style="float: left; padding-right: 50px !important; margin-top: 20px !important;">
+                            <i class="material-icons" style="font-size: 90px; color: #00C8F8;">looks_two</i>
+                        </div>
+                        <div style="font-size: 130% !important;">
+                            это несложно
                         </div>
                     </div>
                 </section>
 
                 <section>
                     <div class="main-text">
-                        <div style="font-size: 140% !important;">
+                        <div style="font-size: 150% !important;">
                             <a href="http://refinement-types.org/">refinement-types.org</a>
                         </div>
                     </div>
