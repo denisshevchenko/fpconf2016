@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>src/Main.hs</title>
+</head>
+<head>
+<link type='text/css' rel='stylesheet' href='liquid.css' />
+</head>
+
+<body>
+<hr>
+Put mouse over identifiers to see inferred types
+<pre><span class=hs-linenum> 1: </span><span class='hs-comment'>{-# LANGUAGE OverloadedStrings #-}</span>
+<span class=hs-linenum> 2: </span>
+<span class=hs-linenum> 3: </span><span class='hs-keyword'>module</span> <span class='hs-conid'>Main</span> <span class='hs-keyword'>where</span>
+<span class=hs-linenum> 4: </span>
+<span class=hs-linenum> 5: </span><span class='hs-keyword'>import</span> <span class='hs-conid'>Language</span><span class='hs-varop'>.</span><span class='hs-conid'>Haskell</span><span class='hs-varop'>.</span><span class='hs-conid'>Liquid</span><span class='hs-varop'>.</span><span class='hs-conid'>Prelude</span>
+<span class=hs-linenum> 6: </span><span class='hs-keyword'>import</span> <span class='hs-conid'>Data</span><span class='hs-varop'>.</span><span class='hs-conid'>Text</span>
+<span class=hs-linenum> 7: </span><span class='hs-keyword'>import</span> <span class='hs-conid'>Liquid</span><span class='hs-varop'>.</span><span class='hs-conid'>Spec</span><span class='hs-varop'>.</span><span class='hs-conid'>Port</span> <span class='hs-conid'>()</span>
+<span class=hs-linenum> 8: </span>
+<span class=hs-linenum> 9: </span><span class='hs-keyword'>{-@</span> <span class='hs-keyword'>type</span> <span class='hs-conid'>NonEmptyList</span> <span class='hs-keyglyph'>=</span>
+<span class=hs-linenum>10: </span>             <span class='hs-layout'>{</span><span class='hs-varid'>v</span><span class='hs-conop'>:</span><span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>|</span> <span class='hs-varid'>len</span> <span class='hs-varid'>v</span> <span class='hs-varop'>&gt;</span> <span class='hs-num'>0</span><span class='hs-layout'>}</span>
+<span class=hs-linenum>11: </span><span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>12: </span>
+<span class=hs-linenum>13: </span><span class='hs-keyword'>{-@</span>
+<span class=hs-linenum>14: </span><span class='hs-definition'>measure</span> <span class='hs-varid'>leng</span> <span class='hs-keyglyph'>::</span> <span class='hs-keyword'>forall</span> <span class='hs-varid'>a</span><span class='hs-varop'>.</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-conid'>GHC</span><span class='hs-varop'>.</span><span class='hs-conid'>Types</span><span class='hs-varop'>.</span><span class='hs-conid'>Int</span>
+<span class=hs-linenum>15: </span><span class='hs-definition'>leng</span> <span class='hs-layout'>(</span><span class='hs-conid'>[]</span><span class='hs-layout'>)</span>     <span class='hs-keyglyph'>=</span> <span class='hs-num'>0</span>
+<span class=hs-linenum>16: </span><span class='hs-definition'>leng</span> <span class='hs-layout'>(</span><span class='hs-varid'>y</span><span class='hs-conop'>:</span><span class='hs-varid'>ys</span><span class='hs-layout'>)</span>   <span class='hs-keyglyph'>=</span> <span class='hs-num'>1</span> <span class='hs-varop'>+</span> <span class='hs-layout'>(</span><span class='hs-varid'>len</span> <span class='hs-varid'>ys</span><span class='hs-layout'>)</span> 
+<span class=hs-linenum>17: </span><span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>18: </span>
+<span class=hs-linenum>19: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>port</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>NotRootPort</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>20: </span><span class='hs-definition'>port</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Int</span>
+<span class=hs-linenum>21: </span><a class=annot href="#"><span class=annottext>{p : GHC.Types.Int | 1024 &lt;= p
+                     &amp;&amp; p &lt;= 65535
+                     &amp;&amp; 3000 /= p}</span><span class='hs-definition'>port</span></a> <span class='hs-keyglyph'>=</span> <span class='hs-num'>6000</span>
+<span class=hs-linenum>22: </span>
+<span class=hs-linenum>23: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>okHead</span> <span class='hs-keyglyph'>::</span> <span class='hs-varid'>l</span><span class='hs-conop'>:</span><span class='hs-conid'>NonEmptyList</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>a</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>24: </span><span class='hs-definition'>okHead</span> <span class='hs-keyglyph'>::</span> <span class='hs-keyglyph'>[</span><span class='hs-varid'>a</span><span class='hs-keyglyph'>]</span> <span class='hs-keyglyph'>-&gt;</span> <span class='hs-varid'>a</span>
+<span class=hs-linenum>25: </span><a class=annot href="#"><span class=annottext>{v : [a] | len v &gt; 0} -&gt; a</span><span class='hs-definition'>okHead</span></a> <span class='hs-conid'>[]</span>    <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>{v : [GHC.Types.Char] | false} -&gt; a</span><span class='hs-varid'>liquidError</span></a> <a class=annot href="#"><span class=annottext>[GHC.Types.Char]</span><span class='hs-str'>"WTF?"</span></a>
+<span class=hs-linenum>26: </span><span class='hs-definition'>okHead</span> <span class='hs-layout'>(</span><span class='hs-varid'>h</span><span class='hs-conop'>:</span><span class='hs-keyword'>_</span><span class='hs-layout'>)</span> <span class='hs-keyglyph'>=</span> <span class='hs-varid'>h</span>
+<span class=hs-linenum>27: </span>
+<span class=hs-linenum>28: </span><span class='hs-definition'>main</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>IO</span> <span class='hs-conid'>()</span>
+<span class=hs-linenum>29: </span><a class=annot href="#"><span class=annottext>(GHC.Types.IO ())</span><span class='hs-definition'>main</span></a> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>GHC.Types.Char -&gt; (GHC.Types.IO ())</span><span class='hs-varid'>print</span></a> <span class='hs-layout'>(</span><span class='hs-varid'>h</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Char</span><span class='hs-layout'>)</span>
+<span class=hs-linenum>30: </span>  <span class='hs-keyword'>where</span>
+<span class=hs-linenum>31: </span>    <a class=annot href="#"><span class=annottext>GHC.Types.Char</span><span class='hs-varid'>h</span></a> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>GHC.Types.Char</span><span class='hs-varid'>okHead</span></a> <a class=annot href="#"><span class=annottext>[GHC.Types.Char]</span><span class='hs-str'>"abla;sdlc"</span></a>
+<span class=hs-linenum>32: </span>
+<span class=hs-linenum>33: </span>
+<span class=hs-linenum>34: </span><span class='hs-comment'>--userName :: Text -&gt; Text</span>
+<span class=hs-linenum>35: </span><span class='hs-comment'>--userName homeDir = name</span>
+<span class=hs-linenum>36: </span><span class='hs-comment'>--  where</span>
+<span class=hs-linenum>37: </span><span class='hs-comment'>--    parts = splitOn "/" homeDir</span>
+<span class=hs-linenum>38: </span><span class='hs-comment'>--    name  = parts !! 1</span>
+<span class=hs-linenum>39: </span>
+</pre>
+</body>
+</html>

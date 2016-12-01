@@ -1,0 +1,5 @@
+module Test where
+
+{-@ type NonPrivilegedPort =
+         {p:Int | 65535>=p && p>=1024} @-}
+

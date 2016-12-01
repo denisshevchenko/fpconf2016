@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>src/Contracts.hs</title>
+</head>
+<head>
+<link type='text/css' rel='stylesheet' href='liquid.css' />
+</head>
+
+<body>
+<hr>
+Put mouse over identifiers to see inferred types
+<pre><span class=hs-linenum> 1: </span><span class='hs-keyword'>module</span> <span class='hs-conid'>Contracts</span> <span class='hs-keyword'>where</span>
+<span class=hs-linenum> 2: </span>
+<span class=hs-linenum> 3: </span><span class='hs-keyword'>{-@</span>
+<span class=hs-linenum> 4: </span>    <span class='hs-varid'>predicate</span> <span class='hs-conid'>Between</span> <span class='hs-conid'>Lo</span> <span class='hs-conid'>V</span> <span class='hs-conid'>Hi</span> <span class='hs-keyglyph'>=</span>
+<span class=hs-linenum> 5: </span>        <span class='hs-conid'>Lo</span> <span class='hs-varop'>&lt;=</span> <span class='hs-conid'>V</span> <span class='hs-varop'>&amp;&amp;</span> <span class='hs-conid'>V</span> <span class='hs-varop'>&lt;=</span> <span class='hs-conid'>Hi</span>
+<span class=hs-linenum> 6: </span><span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 7: </span>
+<span class=hs-linenum> 8: </span><span class='hs-keyword'>{-@</span>
+<span class=hs-linenum> 9: </span>    <span class='hs-varid'>predicate</span> <span class='hs-conid'>NotEqualTo</span> <span class='hs-conid'>S</span> <span class='hs-conid'>V</span> <span class='hs-keyglyph'>=</span> <span class='hs-conid'>S</span> <span class='hs-varop'>!=</span> <span class='hs-conid'>V</span> 
+<span class=hs-linenum>10: </span><span class='hs-keyword'>@-}</span>
+<span class=hs-linenum>11: </span>
+<span class=hs-linenum>12: </span><span class='hs-keyword'>{-@</span>
+<span class=hs-linenum>13: </span>   <span class='hs-keyword'>type</span> <span class='hs-conid'>NotRootPort</span> <span class='hs-keyglyph'>=</span> <span class='hs-layout'>{</span><span class='hs-varid'>p</span><span class='hs-conop'>:</span><span class='hs-conid'>Int</span> <span class='hs-keyglyph'>|</span> <span class='hs-conid'>Between</span> <span class='hs-num'>1024</span> <span class='hs-varid'>p</span> <span class='hs-num'>65535</span> <span class='hs-varop'>&amp;&amp;</span> <span class='hs-conid'>NotEqualTo</span> <span class='hs-num'>3000</span> <span class='hs-varid'>p</span><span class='hs-layout'>}</span>
+<span class=hs-linenum>14: </span><span class='hs-keyword'>@-}</span>
+</pre>
+</body>
+</html>

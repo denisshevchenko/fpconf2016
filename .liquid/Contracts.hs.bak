@@ -1,0 +1,14 @@
+module Contracts where
+
+{-@
+    predicate Between Lo V Hi =
+        Lo <= V && V <= Hi
+@-}
+
+{-@
+    predicate NotEqualTo S V = S != V 
+@-}
+
+{-@
+   type NotRootPort = {p:Int | Between 1024 p 65535 && NotEqualTo 3000 p}
+@-}

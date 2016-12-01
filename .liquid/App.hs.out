@@ -1,0 +1,14 @@
+RESULT: UNSAFE
+ src/App.hs:7:1-9: Error: Liquid Type Mismatch
+ 
+ 7 | localPort = 22
+     ^^^^^^^^^
+ 
+   Inferred type
+     VV : {VV : GHC.Types.Int | VV == (22 : int)}
+  
+   not a subtype of Required type
+     VV : {VV : GHC.Types.Int | 1024 <= VV
+                                && VV <= 65535}
+  
+   In Context

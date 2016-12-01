@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title>src/App.hs</title>
+</head>
+<head>
+<link type='text/css' rel='stylesheet' href='liquid.css' />
+</head>
+
+<body>
+<hr>
+Put mouse over identifiers to see inferred types
+<pre><span class=hs-linenum> 1: </span><span class='hs-keyword'>module</span> <span class='hs-conid'>App</span> <span class='hs-keyword'>where</span>
+<span class=hs-linenum> 2: </span>
+<span class=hs-linenum> 3: </span><span class='hs-keyword'>import</span> <span class='hs-conid'>Liquid</span><span class='hs-varop'>.</span><span class='hs-conid'>Spec</span><span class='hs-varop'>.</span><span class='hs-conid'>Port</span> <span class='hs-conid'>()</span>
+<span class=hs-linenum> 4: </span>
+<span class=hs-linenum> 5: </span><span class='hs-keyword'>{-@</span> <span class='hs-varid'>localPort</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>NotRootPort</span> <span class='hs-keyword'>@-}</span>
+<span class=hs-linenum> 6: </span><span class='hs-definition'>localPort</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>Int</span>
+<span class=hs-linenum> 7: </span><span class=hs-error><a class=annot href="#"><span class=annottext>{p##0 : GHC.Types.Int | 1024 &lt;= p##0
+                        &amp;&amp; p##0 &lt;= 65535}</span><span class='hs-definition'>localPort</span></a></span> <span class='hs-keyglyph'>=</span> <span class='hs-num'>22</span>
+<span class=hs-linenum> 8: </span>
+<span class=hs-linenum> 9: </span><span class='hs-definition'>main</span> <span class='hs-keyglyph'>::</span> <span class='hs-conid'>IO</span> <span class='hs-conid'>()</span>
+<span class=hs-linenum>10: </span><a class=annot href="#"><span class=annottext>(GHC.Types.IO ())</span><span class='hs-definition'>main</span></a> <span class='hs-keyglyph'>=</span> <a class=annot href="#"><span class=annottext>lq_tmp$x##41:GHC.Types.Int -&gt; (GHC.Types.IO ())</span><span class='hs-varid'>print</span></a> <span class='hs-varid'>localPort</span>
+</pre>
+</body>
+</html>

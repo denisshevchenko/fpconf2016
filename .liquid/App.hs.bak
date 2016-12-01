@@ -1,0 +1,10 @@
+module App where
+
+import Liquid.Spec.Port ()
+
+{-@ localPort :: NotRootPort @-}
+localPort :: Int
+localPort = 22
+
+main :: IO ()
+main = print localPort

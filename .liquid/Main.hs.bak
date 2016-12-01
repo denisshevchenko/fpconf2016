@@ -1,0 +1,39 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module Main where
+
+import Language.Haskell.Liquid.Prelude
+import Data.Text
+import Liquid.Spec.Port ()
+
+{-@ type NonEmptyList =
+             {v:[a] | len v > 0}
+@-}
+
+{-@
+measure leng :: forall a. [a] -> GHC.Types.Int
+leng ([])     = 0
+leng (y:ys)   = 1 + (len ys) 
+@-}
+
+{-@ port :: NotRootPort @-}
+port :: Int
+port = 6000
+
+{-@ okHead :: l:NonEmptyList -> a @-}
+okHead :: [a] -> a
+okHead []    = liquidError "WTF?"
+okHead (h:_) = h
+
+main :: IO ()
+main = print (h :: Char)
+  where
+    h = okHead "abla;sdlc"
+
+
+--userName :: Text -> Text
+--userName homeDir = name
+--  where
+--    parts = splitOn "/" homeDir
+--    name  = parts !! 1
+
